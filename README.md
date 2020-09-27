@@ -52,3 +52,35 @@ La secuencia seria la siguiente:
     (1, 1, 35, 'Recarga de $35');
 ```
 Al hacer el insert se ejecuta el _trigger trigger_CreditTransactions_, que a su vez llama al _store_procedure sp_CreditsUpdate_ el procedmiento almacenado recibe los parametros generados por el _trigger_ y se ejecuta la operación de cálculo de __credito__.
+
+El código del procedimiento almacenado es el siguiente:
+```
+  CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_CreditsUpdate`(
+	IN `p_credit_type_id` INT,
+	IN `p_user_id` INT,
+	IN `p_amount` DECIMAL(10,2),
+	IN `p_description` VARCHAR(500)
+)
+  LANGUAGE SQL
+  NOT DETERMINISTIC
+  CONTAINS SQL
+  SQL SECURITY DEFINER
+  COMMENT 'Actualiza los creditos del Usuario Cliente'
+  BEGIN
+    IF p_credit_type_id = 1 THEN 
+      UPDATE 
+        credits 
+      SET 
+        credits.balance = credits.balance - p_amount 
+      WHERE 
+        credits.user_id = p_user_id;
+    ELSE 
+      UPDATE 
+        credits 
+      SET 
+        credits.balance = credits.balance + p_amount 
+      WHERE 
+        credits.user_id = p_user_id;
+    END IF;
+  END
+```
