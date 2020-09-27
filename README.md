@@ -3,7 +3,7 @@
 
 El modelo relacional presentado, consiste en un Marketplace que gestiona la creación de archivos digitales, texto, audio, video, etcétera. 
 
-Existen dos roles principales que son clientes y proveedores estos proveedores estarán categorizados.
+Existen dos roles principales que son clientes :couple: y proveedores :factory: estos proveedores estarán categorizados.
 
 Los clientes generan solicitudes con el requerimiento especifico del tipo de archivo necesitado y lo categorizan de tal manera que esas categorías son las que atenderán los proveedores.
 
