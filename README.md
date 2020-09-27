@@ -51,3 +51,4 @@ La secuencia seria la siguiente:
   VALUES 
     (1, 1, 35, 'Recarga de $35');
 ```
+Al hacer el insert se ejecuta el _trigger trigger_CreditTransactions_, que a su vez llama al _store_procedure sp_CreditsUpdate_ el procedmiento almacenado recibe los parametros generados por el _trigger_ y se ejecuta la operación de cálculo de __credito__.
