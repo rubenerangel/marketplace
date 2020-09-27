@@ -41,4 +41,9 @@ Incluye el diagrama - entidad - relación
 
 ## Carga de Creditos o Saldo
 
-La carga de creditos consiste en actualizar el balance actual del usuario, este se lleva a cabo de la siguinte manera: cuando el usuario necesita cargar creditos o saldo va a la aplicación y selecciona cargar, acá entra en juego la tabla **credit_type**, cuando se hace la operación de insert en la tabla **credit_transaction** se dispara un _trigger_ que llama a un procedimiento almacenado dentro de la base de datos.
+La carga de creditos consiste en actualizar el balance actual del usuario, este se lleva a cabo de la siguinte manera: cuando el usuario necesita cargar creditos o saldo va a la aplicación y selecciona cargar, acá entra en juego la tabla **credit_type**, cuando se hace la operación de insert en la tabla **credit_transaction** se dispara un _trigger_ que llama a un __procedimiento almacenado (store_procedure)__ dentro de la base de datos.
+
+La secuencia seria la siguiente:  
+```
+  INSERT INTO **credit_transaction** (__credit_type_id__, __user_id__, __amount__, __description__) VALUES (1, 1, 35, 'Recarga de $35');
+```
