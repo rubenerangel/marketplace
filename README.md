@@ -45,5 +45,9 @@ La carga de creditos consiste en actualizar el balance actual del usuario, este 
 
 La secuencia seria la siguiente:  
 ```
-  INSERT INTO credit_transaction (credit_type_id, user_id, amount, description) VALUES (1, 1, 35, 'Recarga de $35');
+  INSERT 
+    INTO credit_transaction 
+    (credit_type_id, user_id, amount, description) 
+  VALUES 
+    (1, 1, 35, 'Recarga de $35');
 ```
