@@ -21,4 +21,20 @@ Este es un Marketplace basado en saldo, el cual los clientes cargaran a través 
 * Créditos (credits): almacena la información del saldo o créditos del cliente.
 * Operaciones de crédito o saldo (credit_transaction): se almacenan las operaciones de crédito o débito relacionadas al saldo del usuario.
 * Tipo de crédito (credit_type): almacena el tipo de operación ya sea crédito o débito.
+* Propuestas (**proposal**): almacena las propuestas hechas por los proveedores, una solicitud puede tener más de una propuesta, además esta tabla contiene un campo porcentaje para uso interno el cual determina la ganancia para el operador de la plataforma, en las propuestas se podrán ir colocando archivos adjuntos para mostrar el desarrollo del trabajo y finalmente el archivo solicitado por el cliente.
+
+* Adjuntos (**attachment**): almacena los archivos tanto de ejemplos de clientes, como de desarrollo y final por parte del proveedor.
+* Orden adjunto (**order_attach**): tabla que relaciona el archivo con la propuesta (1:M)
+* Estados del Marketplace (**states_marketplace**): tabla para manejo interno de los distintos estados dentro del Marketplace.
+* Ordenes ó Solicitudes (**orders**): tabla que maneja la información principal de una solicitud tanto para el cliente como para el proveedor.
+* Orden Adjunto (**order_attach**): relación (1:M) entre la orden y la tabla adjuntos.
+* Lenguajes (**languages**): almacena los distintos idiomas disponibles para las solicitudes.
+* Tipos de orden (**types_order**): almacena si la orden va por concurso o a un proveedor favorito.
+* Orden categoría (**order_catgory**): almacena una o varias categorías de la orden.
+* Orden país (**order_country**): almacena el o los países a los que va dirigida la solicitud.
+* País (**countries**): almacena la información de los países.
+* Items (**items**): almacena el tipo de formato requerido y todas sus características requeridas.
+* Formato de archivo (**formats_file**): Tipos de archivos, digitales, texto, audio, video, etcétera, que maneja la plataforma y pueden ser desarrollados por los proveedores.
+* Categorías de formato de archivo (**category_format**): almacena las categorías en las que puede estar dividida un formato.
+
 
