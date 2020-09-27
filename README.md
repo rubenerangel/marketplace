@@ -13,4 +13,4 @@ Luego el cliente escoge de entre todas las propuestas presentadas por los provee
 
 Este es un Marketplace basado en saldo, el cual los clientes cargaran a través del sistema desarrollado y el mismo será administrado dentro del Marketplace.
 
-_Tablas:_
+*Tablas:*
