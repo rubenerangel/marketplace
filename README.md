@@ -1,4 +1,4 @@
-# Modelo relacional Marketplace
+# Modelo Relacional Marketplace
 
 
 El modelo relacional presentado, consiste en un Marketplace que gestiona la creación de archivos digitales, texto, audio, video, etcétera. 
@@ -13,14 +13,16 @@ Luego el cliente escoge de entre todas las propuestas presentadas por los provee
 
 Este es un Marketplace basado en saldo, el cual los clientes cargaran a través del sistema desarrollado y el mismo será administrado dentro del Marketplace.
 
+Incluye el diagrama - entidad - relación
+
 **Tablas:**
 
-* Usuarios (users): almacena todos los usuarios de la plataforma, clientes y proveedores.
-* Tipos de usuarios (types_user): almacena el tipo de usuario, clientes y proveedores.
-* Información de usuario (user_information): almacena toda la información relacionada con el usuario ya sea proveedor o cliente.
-* Créditos (credits): almacena la información del saldo o créditos del cliente.
-* Operaciones de crédito o saldo (credit_transaction): se almacenan las operaciones de crédito o débito relacionadas al saldo del usuario.
-* Tipo de crédito (credit_type): almacena el tipo de operación ya sea crédito o débito.
+* Usuarios (**users**): almacena todos los usuarios de la plataforma, clientes y proveedores.
+* Tipos de usuarios (**types_user**): almacena el tipo de usuario, clientes y proveedores.
+* Información de usuario (**user_information**): almacena toda la información relacionada con el usuario ya sea proveedor o cliente.
+* Créditos (**credits**): almacena la información del saldo o créditos del cliente.
+* Operaciones de crédito o saldo (**credit_transaction**): se almacenan las operaciones de crédito o débito relacionadas al saldo del usuario.
+* Tipo de crédito (**credit_type**): almacena el tipo de operación ya sea crédito o débito.
 * Propuestas (**proposal**): almacena las propuestas hechas por los proveedores, una solicitud puede tener más de una propuesta, además esta tabla contiene un campo porcentaje para uso interno el cual determina la ganancia para el operador de la plataforma, en las propuestas se podrán ir colocando archivos adjuntos para mostrar el desarrollo del trabajo y finalmente el archivo solicitado por el cliente.
 
 * Adjuntos (**attachment**): almacena los archivos tanto de ejemplos de clientes, como de desarrollo y final por parte del proveedor.
@@ -37,4 +39,6 @@ Este es un Marketplace basado en saldo, el cual los clientes cargaran a través 
 * Formato de archivo (**formats_file**): Tipos de archivos, digitales, texto, audio, video, etcétera, que maneja la plataforma y pueden ser desarrollados por los proveedores.
 * Categorías de formato de archivo (**category_format**): almacena las categorías en las que puede estar dividida un formato.
 
+## Carga de Creditos o Saldo
 
+La carga de creditos consiste en actualizar el balance actual del usuario, este se lleva a cabo de la siguinte manera: cuando el usuario necesita cargar creditos o saldo va a la aplicación y selecciona cargar, acá entra en juego la tabla **credit_type**, cuando se hace la operación de insert en la tabla **credit_transaction** se dispara un _trigger_ que llama a un procedimiento almacenado dentro de la base de datos.
